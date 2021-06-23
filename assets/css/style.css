@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Main Body setup */
+body {
+    
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Timer counter Styling */
+.header {
+  margin: 10px 20px;
+  font-size: 20px;
+}
+
+.score {
+display: inline;
+width: 20%;
+}
+
+.counter {
+    display: inline;
+    float: right;
+}
+
+.main, .quiz {
+  margin-left: 100px;
+  margin-right: 100px;;
+  padding: 40px;
+
+}
+
+/* Welcome message Styling */
+h1{
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+/* Instruction message Styling */
+.para-instruction {
+    font-size: 25px;
+    width: 100%;
+    text-align: justify;
+    padding-bottom: 25px;
+    font-style: italic;
+    
+  }
+  
+  /* start quiz button Styling */
+.btn-quiz  {
+    background-color: blue; 
+    border-radius: 10px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    width: 20%;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer; 
+}
+
+.btn-quiz:hover, .choice:hover {
+    background-color: purple;
+    color: white;
+}
+
+/* quiz button Styling */
+.choice {
+  background-color: blue; 
+  border-radius: 10px;
+  color: white;
+  padding: 16px 32px;
+  text-align: left;
+  text-decoration: none;
+  width: 25%;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+/* Correct/Wrong button remark Styling */
+.footer-note {
+  border-top: 2px solid seagreen;
+  margin-top: 30px;
+  font-size: 30px;
+  color: gray;
+  font-style: italic;
+padding-left: 10px;
+padding-top: 10px;
+
+}
