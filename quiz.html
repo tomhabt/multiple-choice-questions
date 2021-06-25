@@ -9,12 +9,12 @@
     </head>
     <body>
         <header class="header">
-            <div class="score" id="high-score">View high score</div>       
-            <div class="counter">Time:<span id="count">0</div>
+            <button class="score" id="high-score" onclick="renderLastRegistered()">View high score</button>       
+            <div class="counter">Time:<span id="count">0</span></div>
         </header>
         <div class="main">
             <h1 id="intro">Welcome to the  Coding Quiz Challenge</h1>
-            <p class="para-instruction"id="instruction">
+            <p class="para-instruction" id="instruction">
                 Try to answer the following code-related questions within 
                 the time limit. Complete all questions correctly in which you 
                 will have only 75 seconds for total of Five questions. Keep in mind 
@@ -23,22 +23,27 @@
                 ten seconds. The earliest finish with no incorrect answer will give you the maximum
                 highscore. GOOD LUCK! 
             </p>
-            <button class="btn-quiz" id="start">Start Quiz!"</button> 
+            <button class="btn" id="start">Start Quiz!</button> 
+           
         </div>
         <div class="quiz" id="quiz-section" style="display:none">
             <h1 id="question">Question</h1>
-            <div id="choices">
-                <button class="choice" id="A" onclick="checkAnswer('A')"></button><br>
-                <button class="choice" id="B" onclick="checkAnswer('B')"></button><br>
-                <button class="choice" id="C" onclick="checkAnswer('C')"></button><br>
-                <button class="choice" id="D" onclick="checkAnswer('D')"></button><br>
-        </div>
-        <div>
+            <p class="para-instruction" id="announce-score"></p>
+            <ol id="order-list">
+            </ol>
+            <form id="form-field"> 
+                Enter initials: <input id="initial" type="text" name="initial-holder" placeholder="Initial here" >
+                <input type="button" id="btn-submit" value="Submit">
+            </form>
+            <button class="btn" id="go-back" onclick="location.reload()">Go Back</button> 
+            <button class="btn" id="clear-score" onclick="localStorage.clear()">Clear high scores</button> 
+           
+            <button class="choice" id="A" onclick="checkAnswer('A')"></button><br>
+            <button class="choice" id="B" onclick="checkAnswer('B')"></button><br>
+            <button class="choice" id="C" onclick="checkAnswer('C')"></button><br>
+            <button class="choice" id="D" onclick="checkAnswer('D')"></button><br>
             <p class="footer-note" id="remark"></p>
         </div>
-        <p  id=final-score></p>
-            <form input="text" placeholder="name">
-            <label id="submit" name="Enter initials:"></label>
         <script src="./assets/js/quiz.js"></script>
     </body>
 </html>
