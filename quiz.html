@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Q&A session</title>
-        <link rel="stylesheet" href="./assets/css/style.css" />
-    </head>
-    <body>
-        <header class="header">
-            <button class="score" id="high-score" onclick="renderLastRegistered()">View high score</button>       
-            <div class="counter">Time:<span id="count">0</span></div>
-        </header>
-        <div class="main">
-            <h1 id="intro">Welcome to the  Coding Quiz Challenge</h1>
-            <p class="para-instruction" id="instruction">
-                Try to answer the following code-related questions within 
-                the time limit. Complete all questions correctly in which you 
-                will have only 75 seconds for total of Five questions. Keep in mind 
-                that you will have unlimited attempt until you get the correct answer for all 
-                questions however each incorrect answer will penalize your score/time by 
-                ten seconds. The earliest finish with no incorrect answer will give you the maximum
-                highscore. GOOD LUCK! 
-            </p>
-            <button class="btn" id="start">Start Quiz!</button> 
-           
-        </div>
-        <div class="quiz" id="quiz-section" style="display:none">
-            <h1 id="question">Question</h1>
-            <p class="para-instruction" id="announce-score"></p>
-            <ol id="order-list">
-            </ol>
-            <form id="form-field"> 
-                Enter initials: <input id="initial" type="text" name="initial-holder" placeholder="Initial here" >
-                <input type="button" id="btn-submit" value="Submit">
-            </form>
-            <button class="btn" id="go-back" onclick="location.reload()">Go Back</button> 
-            <button class="btn" id="clear-score" onclick="localStorage.clear()">Clear high scores</button> 
-           
-            <button class="choice" id="A" onclick="checkAnswer('A')"></button><br>
-            <button class="choice" id="B" onclick="checkAnswer('B')"></button><br>
-            <button class="choice" id="C" onclick="checkAnswer('C')"></button><br>
-            <button class="choice" id="D" onclick="checkAnswer('D')"></button><br>
-            <p class="footer-note" id="remark"></p>
-        </div>
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Q&A session</title>
+ </head>
+  <body>
+     <header class="header">
+        <p class="score" id="high-score"onclick="highscores()">View high score</p>       
+        <div class="counter">Time:<span id="count">0</span></div>
+     </header>
+     <div class="main">
+        <h1 id="intro">Welcome to the  Coding Quiz Challenge</h1>
+        <p class="para-instruction" id="instruction">
+            Try to answer the following code-related questions within 
+            the time limit. Complete all questions correctly in which you 
+            will have only 75 seconds for total of Five questions.<br> Keep in mind 
+            that you will have unlimited attempt until you get the correct answer for all 
+            questions however each incorrect answer will penalize your score/time by 
+            ten seconds. <br>The earliest finish with no incorrect answer will give you the maximum
+            highscore. <br>GOOD LUCK! 
+        </p>
+        <button class="btn" id="start">Start Quiz!</button> 
+     </div>
+     <div class="quiz" id="quiz-section" style="display:none">
+        <h1 id="question">Question</h1>
+        <p class="para-instruction" id="announce-score"></p>
+        <p class="para-instruction" id="order-list"></p>
+        <form class="para-instruction" id="form-field"> 
+             Enter initials: 
+             <input id="initial" type="text" name="initial-holder" placeholder="Initial here" >       
+             <input type="button" id="btn-submit" value="Submit" >
+        </form>
+        <button class="btn" id="go-back" onclick="restart()">Go Back</button> 
+        <button class="btn" id="clear-score" onclick="deleteItems()">Clear high scores</button> 
+        <button class="choice" id="A" onclick="checkAnswer('A')"></button><br>
+        <button class="choice" id="B" onclick="checkAnswer('B')"></button><br>
+        <button class="choice" id="C" onclick="checkAnswer('C')"></button><br>
+        <button class="choice" id="D" onclick="checkAnswer('D')"></button><br>
+        <p class="footer-note" id="remark"></p>
+     </div>
         <script src="./assets/js/quiz.js"></script>
-    </body>
+  </body>
 </html>
