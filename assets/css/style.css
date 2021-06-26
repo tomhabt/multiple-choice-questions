@@ -8,7 +8,7 @@
 body {
     
     background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -28,6 +28,7 @@ body {
 .score {
 display: inline;
 width: 20%;
+text-decoration: underline;
 }
 
 .counter {
@@ -47,15 +48,17 @@ h1{
     font-size: 40px;
     text-align: center;
     padding-bottom: 25px;
+    text-decoration: none;
 }
 
 /* Instruction message Styling */
 .para-instruction {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
     font-size: 25px;
     width: 100%;
     text-align: justify;
     padding-bottom: 25px; 
+    line-height: 50px;
   }
   
   /* start quiz button Styling */

@@ -9,7 +9,7 @@
  </head>
   <body>
      <header class="header">
-        <p class="score" id="high-score"onclick="highscores()">View high score</p>       
+        <button class="score" id="high-score" onclick="showScores()">View high score</button>       
         <div class="counter">Time:<span id="count">0</span></div>
      </header>
      <div class="main">
@@ -17,18 +17,18 @@
         <p class="para-instruction" id="instruction">
             Try to answer the following code-related questions within 
             the time limit. Complete all questions correctly in which you 
-            will have only 75 seconds for total of Five questions.<br> Keep in mind 
+            will have only 75 seconds for total of Five questions. Keep in mind 
             that you will have unlimited attempt until you get the correct answer for all 
             questions however each incorrect answer will penalize your score/time by 
-            ten seconds. <br>The earliest finish with no incorrect answer will give you the maximum
-            highscore. <br>GOOD LUCK! 
+            ten seconds. The earliest finish with no incorrect answer will give you the maximum
+            highscore.<br>GOOD LUCK! 
         </p>
         <button class="btn" id="start">Start Quiz!</button> 
      </div>
      <div class="quiz" id="quiz-section" style="display:none">
         <h1 id="question">Question</h1>
         <p class="para-instruction" id="announce-score"></p>
-        <p class="para-instruction" id="order-list"></p>
+        <ol class="para-instruction" id="order-list"></ol>
         <form class="para-instruction" id="form-field"> 
              Enter initials: 
              <input id="initial" type="text" name="initial-holder" placeholder="Initial here" >       

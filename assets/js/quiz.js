@@ -23,47 +23,47 @@ var goBackEl = document.getElementById("go-back");
 var inputEl = document.getElementById("initial");
 
 
+
 // The array of questions for the quiz.
 var questions = [{
-	q: "1.Commenly used data types DO Not Include:",
-	choiceA: "1.string",
-	choiceB: "2.booleans",
-	choiceC: "3.alert",
-	choiceD: "4.numbers",
+	q: "1. Commonly used data types DO Not Include:",
+	choiceA: "1. string",
+	choiceB: "2. booleans",
+	choiceC: "3. alert",
+	choiceD: "4. numbers",
 	correct: "B"
 }, {
-	q: "2.The condition in an if/else statment is enclosed with ___________.",
-	choiceA: "1.quotes",
-	choiceB: "2.curly brackets",
-	choiceC: "3.parenthesis",
-	choiceD: "4.square brackets",
+	q: "2. The condition in an if/else statment is enclosed within ___________.",
+	choiceA: "1. quotes",
+	choiceB: "2. curly brackets",
+	choiceC: "3. parenthesis",
+	choiceD: "4. square brackets",
 	correct: 'C'
 }, {
 	q: "3. Array in JacaScript can be used to store ______________.",
-	choiceA: "1.numbers and strings",
-	choiceB: "2.other arrays",
-	choiceC: "3.booleans",
-	choiceD: "4.all of the above",
+	choiceA: "1. numbers and strings",
+	choiceB: "2. other arrays",
+	choiceC: "3. booleans",
+	choiceD: "4. all of the above",
 	correct: 'D'
 }, {
-	q: "4. String values must be enclosed within ____________ when being assigned tovariables.",
-	choiceA: "1.commas",
-	choiceB: "2.curly brackets",
-	choiceC: "3.quotes",
-	choiceD: "4.parenthesis",
+	q: "4. String values must be enclosed within ____________ when being assigned to variables.",
+	choiceA: "1. commas",
+	choiceB: "2. curly brackets",
+	choiceC: "3. quotes",
+	choiceD: "4. parenthesis",
 	correct: 'C'
 }, {
-	q: "5. A very useful tool used during devlopmet and debugging for printing content to teh  debugger is:",
-	choiceA: "1.javaScript",
-	choiceB: "2.terminal/bash0",
-	choiceC: "3.for loops",
-	choiceD: "4.console.log",
+	q: "5. A very useful tool used during devlopmet and debugging for printing content to the  debugger is:",
+	choiceA: "1. javaScript",
+	choiceB: "2. terminal/bash0",
+	choiceC: "3. for loops",
+	choiceD: "4. console.log",
 	correct: 'D'
 }];
 
 //clear the some parts of the page
 function clear() {
-
 	qEl.textContent = "none";
 	// Hiding of elements for the page and out of page
 	announceScoreEl.style.display = "none";
@@ -72,7 +72,6 @@ function clear() {
 	goBackEl.style.display = "block";
 	clearScoreEl.style.display = "block";
 	remarkEl.style.display = "block";
-
 }
 //inClear the some parts of the page
 function unClear() {
@@ -90,7 +89,6 @@ function unClear() {
 	announceScoreEl.style.display = "block";
 	formEl.style.display = "block";
 	document.getElementById("btn-submit").disabled = false;
-
 }
 
 //restarts the quize
@@ -107,7 +105,6 @@ function restart() {
 	counterEl.style.display = "block";
 	counterTitleEl.style.display = "block";
 }
-
 // creat Global variables for function setup
 var questionsEnd = questions.length - 1;
 var currentQuestion = 0;
@@ -127,9 +124,25 @@ function launchQestion() {
 	choiceCEl.innerHTML = questionArray.choiceC;
 	choiceDEl.innerHTML = questionArray.choiceD;
 }
-launchQuizEl.addEventListener("click", launchQuiz);
-
-
+highScoreEl.addEventListener("click", function showScores() {
+	launchQuiz()
+	renderLastRegistered()
+	
+	localStorage.getItem("highScores[0]")
+	console.log(highScores)
+	qEl.textContent = "High Score"
+	var highScores = localStorage.getItem("highScores");
+	choiceAEl.textContent = "The Latest High Scores are - " + highScores;
+	totalQuizTime = totalQuizTime + 1000;
+	choiceAEl.style.width = "50%"
+	choiceBEl.style.display = "none";
+	choiceCEl.style.display = "none";
+	choiceDEl.style.display = "none";
+	counterTitleEl.style.display = "none";
+	remarkEl.style.display = "block";
+	choiceAEl.disabled = true;
+})
+	
 // Function for using event listner to start the quiz and use the choices to move forward to the next questions
 // start quiz
 function launchQuiz() {
@@ -149,6 +162,7 @@ function launchQuiz() {
 	countdown();
 	questionTime = setInterval(countdown, 1000);
 }
+	launchQuizEl.addEventListener("click", launchQuiz);
 
 // Function for displaying countdown questionTime
 function countdown() {
@@ -196,22 +210,21 @@ function checkAnswer(answer) {
 	}
 }
 
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
 //renders the user intial and score on the page
 function renderLastRegistered() {
-
-	var intialNames = JSON.parse(localStorage.getItem('container'));
-	var outputs = "";
-	for (var i = 0; i < intialNames.queue.length; i++) {
-		outputs += '<div id="">' + (i + 1) + '. ' + intialNames.queue[i].initialdata + ' - ' + intialNames.queue[i].scoredata + '</div>';
-	}
-	document.getElementById("order-list").innerHTML = outputs;
+	highScores.forEach(function (highScore) {
+		var scoreEl = document.createElement("li");
+		scoreEl.textContent = highScore.initials + " - " + highScore.score
+		document.getElementById("order-list").appendChild(scoreEl) 	
+	})
 }
 
 //renderLastRegistered();
 function displayMessage(type, message) {
 	remarkEl.textContent = message;
 }
-
 
 // Setting an event Listener for the quiz taker's name and score
 submitEl.addEventListener("click", function (event) {
@@ -227,40 +240,30 @@ submitEl.addEventListener("click", function (event) {
 		displayMessage('error', 'Initial cannot be blank');
 	} else {
 		displayMessage('success', 'Your Initial & score is registered successfully');
-		if (localStorage.getItem('container') === null) {
-			var intialNames = {
-				queue: [{
-					initialdata: initialSave,
-					scoredata: scoreSave
-				}]
-			};
-			localStorage.setItem('container', JSON.stringify(intialNames));
-			document.getElementById("btn-submit").disabled = true;
-			document.getElementById('initial').value = '';
-			highScoreEl.style.display = "none";
-			counterEl.style.display = "none";
-			counterTitleEl.style.display = "none";
-			renderLastRegistered();
-
-		} else {
-
-			var intialNames = JSON.parse(localStorage.getItem('container'));
-			intialNames.queue.push({
-				initialdata: initialSave,
-				scoredata: scoreSave
-			});
-			
-			localStorage.setItem('container', JSON.stringify(intialNames));
-			document.getElementById("btn-submit").disabled = true;
-			document.getElementById('initial').value = '';
-			highScoreEl.style.display = "none";
-			counterEl.style.display = "none";
-			counterTitleEl.style.display = "none";
-			renderLastRegistered();
+		
+		var scoreObj = {
+			score: scoreSave,
+			initials: initialSave
 		}
+		highScores.push(scoreObj)
+		localStorage.setItem('highScores', JSON.stringify(highScores));
+		console.log(localStorage)
+		console.log(highScores)
+		highScores.sort(function(a, b) {
+			return b.score - a.score;
+		})
+		console.log(highScores)
+
+		document.getElementById("btn-submit").disabled = true;
+		document.getElementById('initial').value = '';
+		highScoreEl.style.display = "none";
+		counterEl.style.display = "none";
+		counterTitleEl.style.display = "none";
+		//   renderLastRegistered();
+		renderLastRegistered()
 	}
 });
-
+	
 //clears the loacl storage
 function deleteItems() {
 	localStorage.clear();
@@ -270,10 +273,3 @@ function deleteItems() {
   counterEl.style.display = "none";
   counterTitleEl.style.display = "none";
 }
-
-function hignscores() {
-	renderLastRegistered();
-}
-	
-			
-	
