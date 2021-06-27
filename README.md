@@ -19,7 +19,7 @@ An small web application that can be  used for small question and answer sesssio
   - Initialize by  DOM Method and Web APIs
 
 ## Website
-https://tomhabt.github.io/multiple-choice-questions/quiz.html/
+https://tomhabt.github.io/multiple-choice-questions/
 
 ## Contribution
 Made with ❤️ by [Thomas Habtemariam]
