@@ -125,22 +125,12 @@ function launchQestion() {
 	choiceDEl.innerHTML = questionArray.choiceD;
 }
 highScoreEl.addEventListener("click", function showScores() {
-	launchQuiz()
-	renderLastRegistered()
+
 	
-	localStorage.getItem("highScores[0]")
-	console.log(highScores)
-	qEl.textContent = "High Score"
-	var highScores = localStorage.getItem("highScores");
-	choiceAEl.textContent = "The Latest High Scores are - " + highScores;
-	totalQuizTime = totalQuizTime + 1000;
-	choiceAEl.style.width = "50%"
-	choiceBEl.style.display = "none";
-	choiceCEl.style.display = "none";
-	choiceDEl.style.display = "none";
-	counterTitleEl.style.display = "none";
-	remarkEl.style.display = "block";
-	choiceAEl.disabled = true;
+	//var tempObj=localStorage.getItem("highScoore");
+	
+	highScoreEl.textContent = " High Score = " + highScores[0].score;
+	 
 })
 	
 // Function for using event listner to start the quiz and use the choices to move forward to the next questions

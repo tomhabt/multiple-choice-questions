@@ -9,7 +9,7 @@
  </head>
   <body>
      <header class="header">
-        <button class="score" id="high-score" onclick="showScores()">View high score</button>       
+        <button class="btn" id="high-score" onclick="showScores()">View high score</button>      
         <div class="counter">Time:<span id="count">0</span></div>
      </header>
      <div class="main">
@@ -32,7 +32,7 @@
         <form class="para-instruction" id="form-field"> 
              Enter initials: 
              <input id="initial" type="text" name="initial-holder" placeholder="Initial here" >       
-             <input type="button" id="btn-submit" value="Submit" >
+             <input class="btn" type="button" id="btn-submit" value="Submit" >
         </form>
         <button class="btn" id="go-back" onclick="restart()">Go Back</button> 
         <button class="btn" id="clear-score" onclick="deleteItems()">Clear high scores</button> 
